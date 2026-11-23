@@ -1,0 +1,145 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Mayank Attri</title>
+  <meta name="description" content="Mayank Attri — software & product developer. Projects, experience, toolkit and contact, in six switchable 3D views.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Barlow+Condensed:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Caveat:wght@500&display=swap">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="stylesheet" href="css/base.css?v=10">
+  <link rel="stylesheet" href="css/home.css?v=10">
+  <link rel="stylesheet" href="css/views.css?v=10">
+  <script src="js/data.js?v=10" defer></script>
+  <script src="js/views.js?v=10" defer></script>
+  <script src="js/home.js?v=10" defer></script>
+  <script src="js/twist.js?v=10" defer></script>
+  <script src="js/lift.js?v=10" defer></script>
+</head>
+<body>
+<main class="home" data-view="boxes">
+  <div class="switcher" role="tablist" aria-label="Choose a view">
+    <button type="button" role="tab" data-view="boxes" aria-selected="true"><kbd>1</kbd>Boxes</button>
+    <button type="button" role="tab" data-view="rack" aria-selected="false"><kbd>2</kbd>Rack</button>
+    <button type="button" role="tab" data-view="floppies" aria-selected="false"><kbd>3</kbd>Floppies</button>
+    <button type="button" role="tab" data-view="keyboard" aria-selected="false"><kbd>4</kbd>Keyboard</button>
+    <button type="button" role="tab" data-view="circuit" aria-selected="false"><kbd>5</kbd>Circuit</button>
+    <button type="button" role="tab" data-view="windows" aria-selected="false"><kbd>6</kbd>Windows</button>
+  </div>
+
+  <p class="corner role">software / product developer</p>
+  <p class="corner status"><span class="dot" aria-hidden="true"></span> open to work</p>
+
+  <section class="view" data-view="boxes">
+  <nav class="stage" aria-label="Sections — boxes">
+    <div class="world" data-twist data-lift data-stacked="true">
+      <div class="ground" aria-hidden="true"></div>
+      <div class="shadow" aria-hidden="true"></div>
+
+      <!-- Top: projects — the lidded black box -->
+      <a class="box b-projects" href="projects.html" aria-label="Projects">
+        <span class="face f-front">
+          <span class="plate">SHIPPED</span>
+          <span class="commits" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i></span>
+          <span class="spine">PROJECTS</span>
+        </span>
+        <span class="face f-back"></span>
+        <span class="face f-left"><span class="dots">•••</span></span>
+        <span class="face f-right"></span>
+        <span class="face f-top"><span class="emblem">{ }</span></span>
+        <span class="face f-bottom"></span>
+      </a>
+
+      <!-- Experience -->
+      <a class="box b-work" href="work.html" aria-label="Experience">
+        <span class="face f-front">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><rect x="3" y="7" width="18" height="13" rx="1.5"/><path d="M9 7V5h6v2M3 12h18"/></svg>
+          <span class="sticker"><b>EXPERIENCE</b><small>~/work</small></span>
+        </span>
+        <span class="face f-back"></span>
+        <span class="face f-left"><span class="arrows" aria-hidden="true">↑↑</span></span>
+        <span class="face f-right"></span>
+        <span class="face f-top"></span>
+        <span class="face f-bottom"></span>
+      </a>
+
+      <!-- Toolkit -->
+      <a class="box b-toolkit" href="toolkit.html" aria-label="Toolkit">
+        <span class="face f-front">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M8 7l-5 5 5 5M16 7l5 5-5 5M13.5 5l-3 14"/></svg>
+          <span class="sticker"><b>TOOLKIT</b><small>package.json</small></span>
+        </span>
+        <span class="face f-back"></span>
+        <span class="face f-left"><span class="arrows" aria-hidden="true">↑↑</span></span>
+        <span class="face f-right"></span>
+        <span class="face f-top"></span>
+        <span class="face f-bottom"></span>
+      </a>
+
+      <!-- Lab: AI agents and experiments -->
+      <a class="box b-lab" href="lab.html" aria-label="Lab">
+        <span class="face f-front">
+          <svg class="icon" viewBox="0 0 24 24" aria-hidden="true"><path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2h12.4a1.5 1.5 0 0 0 1.3-2L14 9V3M7 15h10"/></svg>
+          <span class="tape tape-v" aria-hidden="true"></span>
+          <span class="sticker"><b>THE LAB</b><small>~/ai-agents</small></span>
+        </span>
+        <span class="face f-back"></span>
+        <span class="face f-left"></span>
+        <span class="face f-right"></span>
+        <span class="face f-top"><span class="tape tape-top" aria-hidden="true"><span>EXPERIMENTAL · HANDLE WITH CARE · EXPERIMENTAL · HANDLE WITH CARE ·</span></span></span>
+        <span class="face f-bottom"></span>
+      </a>
+
+      <!-- Contact: the air-mail parcel -->
+      <a class="box b-contact" href="contact.html" aria-label="Contact">
+        <span class="face f-front">
+          <span class="stamp">BY HTTP POST<br>PAR AVION</span>
+          <span class="spine">SAY HELLO</span>
+          <span class="aside">NO SPAM</span>
+        </span>
+        <span class="face f-back"></span>
+        <span class="face f-left"></span>
+        <span class="face f-right"></span>
+        <span class="face f-top"><span class="to">TO: YOU</span><span class="postage">200<small>OK</small></span></span>
+        <span class="face f-bottom"></span>
+      </a>
+    </div>
+  </nav>
+  </section>
+
+  <!-- The other views are built by js/views.js from the same five sections. -->
+  <section class="view" data-view="rack" hidden>
+    <nav class="stage" aria-label="Sections — server rack"><div class="world" data-twist data-lift data-stacked="true"></div></nav>
+  </section>
+  <section class="view" data-view="floppies" hidden>
+    <nav class="stage" aria-label="Sections — floppy disks"><div class="world" data-twist data-lift data-stacked="false"></div></nav>
+  </section>
+  <section class="view" data-view="keyboard" hidden>
+    <nav class="stage" aria-label="Sections — keyboard"><div class="world" data-orbit></div></nav>
+    <p class="hint">type <b>P</b> · <b>E</b> · <b>T</b> · <b>L</b> · <b>C</b> on your keyboard</p>
+  </section>
+  <section class="view" data-view="circuit" hidden>
+    <nav class="stage" aria-label="Sections — circuit board"><div class="world" data-orbit></div></nav>
+  </section>
+  <section class="view" data-view="windows" hidden>
+    <nav class="stage" aria-label="Sections — windows"><div class="world" data-orbit data-spread></div></nav>
+  </section>
+
+  <!-- Plain list for small screens and anyone who prefers text -->
+  <ul class="list">
+    <li><a href="projects.html">Projects</a></li>
+    <li><a href="work.html">Experience</a></li>
+    <li><a href="toolkit.html">Toolkit</a></li>
+    <li><a href="lab.html">Lab</a></li>
+    <li><a href="contact.html">Contact</a></li>
+  </ul>
+
+  <h1 class="corner name">Mayank Attri</h1>
+  <p class="corner copyright">© 2026</p>
+
+  <p class="toast" role="status" aria-live="polite"></p>
+</main>
+</body>
+</html>

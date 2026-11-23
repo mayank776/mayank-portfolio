@@ -1,0 +1,69 @@
+/* Shared tokens, fonts and resets for every page. */
+@view-transition { navigation: auto; }
+
+:root {
+  --paper: #efe5d6;
+  --paper-2: #e4d7c5;
+  --ink: #3b3b39;
+  --line: rgb(59 59 57 / 0.13);
+  --shadow: rgb(40 30 20 / 0.28);
+
+  --c-projects: #242320;
+  --c-work: #ad4a3b;
+  --c-toolkit: #75496e;
+  --c-lab: #c37746;
+  --c-contact: #3d6184;
+  --gold: #c9a95c;
+  --cream: #f3e6cf;
+  --tape: rgb(222 196 150 / 0.92);
+  --ok: #6f8f4e;
+
+  --gutter: clamp(16px, 3vw, 36px);
+  --label: "Barlow Condensed", "Arial Narrow", sans-serif;
+  --mono: "JetBrains Mono", ui-monospace, "SFMono-Regular", Consolas, monospace;
+  --serif: "Fraunces", Georgia, serif;
+  color-scheme: light;
+}
+
+/* Night shift: the paving goes dark, the boxes keep their colours. */
+@media (prefers-color-scheme: dark) {
+  :root:not([data-theme="light"]) {
+    --paper: #1b1a18;
+    --paper-2: #25231f;
+    --ink: #e9dfcf;
+    --line: rgb(239 229 214 / 0.08);
+    --shadow: rgb(0 0 0 / 0.55);
+    color-scheme: dark;
+  }
+}
+:root[data-theme="dark"] {
+  --paper: #1b1a18;
+  --paper-2: #25231f;
+  --ink: #e9dfcf;
+  --line: rgb(239 229 214 / 0.08);
+  --shadow: rgb(0 0 0 / 0.55);
+  color-scheme: dark;
+}
+
+*, *::before, *::after { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--paper);
+  color: var(--ink);
+  font-family: var(--label);
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
+}
+a { color: inherit; }
+:focus-visible { outline: 2px solid var(--gold); outline-offset: 3px; }
+::selection { background: var(--ink); color: var(--paper); }
+
+.sr-only {
+  position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px;
+  overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; border: 0;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after { animation: none !important; transition: none !important; }
+  @view-transition { navigation: none; }
+}

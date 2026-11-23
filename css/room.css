@@ -1,0 +1,219 @@
+/* Inner pages ("rooms"): each one is the inside of its box,
+   painted in that box's colour. */
+
+.room {
+  --bg: var(--c-projects);
+  --fg: var(--cream);
+  --accent: var(--gold);
+  min-height: 100svh;
+  background: var(--bg);
+  color: var(--fg);
+  padding: var(--gutter);
+  display: flex;
+  flex-direction: column;
+}
+
+.room-head {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  font: 400 12.5px/1.2 var(--mono);
+  opacity: 0.85;
+}
+.back { text-decoration: none; }
+.back:hover { text-decoration: underline; text-underline-offset: 4px; }
+
+.room h1 {
+  margin: clamp(40px, 9vh, 110px) 0 18px;
+  font: 600 clamp(64px, 13vw, 176px) / 0.82 var(--label);
+  letter-spacing: -0.005em;
+  text-transform: uppercase;
+  color: var(--accent);
+}
+.lede {
+  margin: 0 0 clamp(32px, 7vh, 72px);
+  max-width: 58ch;
+  font: 400 15px/1.6 var(--mono);
+  opacity: 0.8;
+}
+.content { flex: 1; }
+.room-foot {
+  margin-top: 64px;
+  display: flex;
+  justify-content: space-between;
+  font: 500 clamp(1.1rem, 0.9rem + 0.8vw, 1.5rem) / 1 var(--label);
+  text-transform: uppercase;
+}
+
+/* ---------- projects ---------- */
+.room-projects { --bg: var(--c-projects); --fg: #efe5d6; --accent: var(--gold); }
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(min(100%, 300px), 1fr));
+  gap: 18px;
+}
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  padding: 22px;
+  border: 1px solid color-mix(in oklab, var(--gold), transparent 65%);
+  outline: 1px solid color-mix(in oklab, var(--gold), transparent 85%);
+  outline-offset: -7px;
+  transition: border-color 0.2s, translate 0.2s;
+}
+.card:hover { border-color: var(--gold); translate: 0 -3px; }
+.card-top { display: flex; justify-content: space-between; align-items: center; font: 400 12px/1 var(--mono); opacity: 0.75; }
+.chip {
+  padding: 4px 7px;
+  background: var(--gold);
+  color: var(--c-projects);
+  font: 600 11px/1 var(--label);
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+.chip.wip { background: transparent; color: var(--gold); box-shadow: inset 0 0 0 1px var(--gold); }
+.card h2 { margin: 0; font: 600 30px/1 var(--label); letter-spacing: 0.02em; color: var(--gold); }
+.card p { margin: 0; font: 400 13.5px/1.6 var(--mono); opacity: 0.85; flex: 1; }
+.tags { display: flex; flex-wrap: wrap; gap: 6px; margin: 0; padding: 0; list-style: none; }
+.tags li { font: 400 11.5px/1 var(--mono); padding: 5px 8px; background: rgb(255 255 255 / 0.06); }
+.card-links { display: flex; gap: 16px; font: 500 15px/1 var(--label); letter-spacing: 0.1em; text-transform: uppercase; }
+.card-links a { text-decoration: none; border-bottom: 1px solid var(--gold); color: var(--gold); }
+
+/* ---------- experience ---------- */
+.room-work { --bg: var(--c-work); --fg: var(--cream); --accent: var(--cream); }
+.jobs { margin: 0; padding: 0; list-style: none; border-top: 1px dashed rgb(243 230 207 / 0.4); }
+.job {
+  display: grid;
+  grid-template-columns: minmax(120px, 200px) 1fr;
+  gap: 8px 32px;
+  padding: 26px 0;
+  border-bottom: 1px dashed rgb(243 230 207 / 0.4);
+}
+.job .period { font: 400 13px/1.6 var(--mono); opacity: 0.8; }
+.job h2 { margin: 0 0 4px; font: 600 32px/1 var(--label); text-transform: uppercase; letter-spacing: 0.02em; }
+.job .org { font: 400 13px/1.4 var(--mono); opacity: 0.8; }
+.job ul { margin: 12px 0 0; padding-left: 18px; font: 400 14px/1.65 var(--mono); }
+@media (max-width: 600px) { .job { grid-template-columns: 1fr; } }
+
+/* ---------- toolkit ---------- */
+.room-toolkit { --bg: var(--c-toolkit); --fg: var(--cream); --accent: var(--cream); }
+.groups { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 260px), 1fr)); gap: 36px 28px; }
+.group h2 { margin: 0 0 14px; font: 400 13px/1 var(--mono); opacity: 0.8; }
+.group h2::before { content: "// "; opacity: 0.6; }
+.stickers { display: flex; flex-wrap: wrap; gap: 10px; margin: 0; padding: 0; list-style: none; }
+.stickers li {
+  padding: 8px 12px 7px;
+  background: var(--cream);
+  color: var(--c-toolkit);
+  font: 600 17px/1 var(--label);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  rotate: var(--r, 0deg);
+  box-shadow: 0 2px 0 rgb(0 0 0 / 0.18);
+  transition: rotate 0.2s;
+}
+.stickers li:hover { rotate: 0deg; }
+
+/* ---------- contact: the inside of the air-mail parcel ---------- */
+.room-contact { --bg: var(--c-contact); --fg: var(--cream); --accent: var(--cream); position: relative; }
+.room-contact::before {
+  content: "";
+  position: fixed;
+  inset: 0;
+  pointer-events: none;
+  border: 10px solid transparent;
+  border-image: repeating-linear-gradient(-45deg, #b8473a 0 14px, var(--cream) 0 28px, #2b4c70 0 42px, var(--cream) 0 56px) 12;
+  z-index: 3;
+}
+.room-contact { padding: calc(var(--gutter) + 10px); }
+.letter {
+  max-width: 720px;
+  margin: 0 auto;
+  padding: clamp(24px, 5vw, 56px);
+  background: rgb(243 230 207 / 0.08);
+  border: 1px solid rgb(243 230 207 / 0.2);
+  text-align: center;
+}
+.letter h2 { margin: 0 0 12px; font: 300 clamp(40px, 7vw, 76px)/1 var(--serif); letter-spacing: -0.02em; }
+.letter p { margin: 0 auto 28px; max-width: 46ch; font: 400 14px/1.6 var(--mono); opacity: 0.85; }
+.mail-btn {
+  display: inline-block;
+  padding: 14px 22px;
+  background: var(--cream);
+  color: var(--c-contact);
+  text-decoration: none;
+  font: 600 20px/1 var(--label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+.mail-btn:hover { background: #fff; }
+.compose { display: grid; gap: 10px; margin: 34px 0 0; text-align: left; }
+.compose label { font: 400 12px/1 var(--mono); opacity: 0.8; }
+.compose input, .compose textarea {
+  width: 100%;
+  padding: 12px;
+  background: rgb(0 0 0 / 0.15);
+  border: 1px solid rgb(243 230 207 / 0.3);
+  color: var(--cream);
+  font: 400 14px/1.5 var(--mono);
+  border-radius: 0;
+}
+.compose textarea { min-height: 120px; resize: vertical; }
+.compose button {
+  justify-self: start;
+  padding: 11px 18px;
+  background: transparent;
+  border: 1px solid var(--cream);
+  color: var(--cream);
+  font: 600 17px/1 var(--label);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  cursor: pointer;
+}
+.compose button:hover { background: var(--cream); color: var(--c-contact); }
+.elsewhere { display: flex; justify-content: center; flex-wrap: wrap; gap: 22px; margin-top: 34px; font: 500 17px/1 var(--label); letter-spacing: 0.1em; text-transform: uppercase; }
+.elsewhere a { text-decoration: none; border-bottom: 1px solid currentColor; }
+
+/* ---------- experience extras ---------- */
+.job .nda { margin: 10px 0 0; font: italic 400 13px/1.5 var(--mono); opacity: 0.7; }
+.edu { margin-top: 40px; }
+.edu h2 { margin: 0 0 8px; font: 400 13px/1 var(--mono); opacity: 0.8; }
+.edu h2::before { content: "// "; opacity: 0.6; }
+.edu p { margin: 0; font: 600 26px/1.1 var(--label); text-transform: uppercase; }
+.edu p.org { margin-top: 6px; font: 400 13px/1.4 var(--mono); text-transform: none; opacity: 0.8; }
+
+/* ---------- lab: the orange box, opened ---------- */
+.room-lab { --bg: var(--c-lab); --fg: #2b1a0e; --accent: #2b1a0e; }
+.experiments { display: grid; grid-template-columns: repeat(auto-fill, minmax(min(100%, 340px), 1fr)); gap: 20px; }
+.experiment {
+  position: relative;
+  display: grid;
+  gap: 12px;
+  align-content: start;
+  padding: 26px 22px 22px;
+  background: var(--cream);
+  color: #2b1a0e;
+  box-shadow: 0 3px 0 rgb(0 0 0 / 0.15);
+}
+.experiment::before {
+  content: "";
+  position: absolute;
+  top: -9px;
+  left: 50%;
+  width: 90px;
+  height: 20px;
+  translate: -50% 0;
+  rotate: -2deg;
+  background: var(--tape);
+}
+.exp-id { font: 500 11px/1 var(--mono); letter-spacing: 0.14em; color: var(--c-lab); }
+.experiment h2 { margin: 0; font: 600 30px/1 var(--label); text-transform: uppercase; }
+.experiment p { margin: 0; font: 400 13.5px/1.6 var(--mono); }
+.experiment .tags li { background: rgb(195 119 70 / 0.16); }
+.experiment .card-links a { color: var(--c-lab); border-color: var(--c-lab); }
+.certs { margin-top: 44px; }
+.certs h2 { margin: 0 0 12px; font: 400 13px/1 var(--mono); }
+.certs h2::before { content: "// "; opacity: 0.6; }
+.certs ul { margin: 0; padding-left: 18px; font: 400 14px/1.9 var(--mono); }
