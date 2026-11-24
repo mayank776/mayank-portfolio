@@ -67,7 +67,7 @@
       { s: sec.projects, x: -150, z: -78, turn: -6, name: "projects_final_v2", note: "backup of a backup" },
       { s: sec.work, x: 0, z: -84, turn: 3, name: "experience.log", note: "rewind before returning" },
       { s: sec.toolkit, x: 150, z: -74, turn: 8, name: "toolkit.tar.gz", note: "contains: everything I reach for" },
-      { s: sec.lab, x: -78, z: 72, turn: -4, name: "ai_experiments", note: "experimental — handle with care" },
+      { s: sec.lab, x: -78, z: 72, turn: -4, name: "big_ideas", note: "experimental — handle with care" },
       { s: sec.contact, x: 78, z: 70, turn: 5, name: "say_hello.eml", note: "insert to reply" },
     ];
     return ground("--sw:520;--sd:340") + disks.map(({ s, x, z, turn, name, note }, i) => box({
@@ -167,13 +167,13 @@
         SITE.toolkit.flatMap((g) => g.items).slice(0, 6).map((t) => `    <span class="p">"${esc(t)}"</span>: <span class="k">"latest"</span>`).join(",\n") +
         `\n  }\n}`,
       lab:
-        `$ ls ~/lab/agents\n` +
-        (SITE.lab || []).map((x) => `<span class="k">${esc(x.name)}</span>\n  <span class="m">${esc(x.stack.join(" · "))}</span>`).join("\n") +
+        `$ ls ~/lab\n` +
+        (SITE.lab || []).map((x) => `<span class="k">${esc(x.id)}/</span>\n  <span class="m">${esc(x.hook)}</span>`).join("\n") +
         `\n$ ${cursor}`,
       contact:
         `<span class="m">To:</span>      you\n<span class="m">From:</span>    Mayank Attri\n<span class="m">Subject:</span> let's build something\n\nHey — got an idea, a role, or a\nbug that won't die? Click to write.`,
     };
-    const titles = { projects: "~/projects — zsh", work: "git log — experience", toolkit: "package.json — editor", lab: "~/lab — agents", contact: "New message" };
+    const titles = { projects: "~/projects — zsh", work: "git log — experience", toolkit: "package.json — editor", lab: "~/lab — ideas", contact: "New message" };
     // back to front
     const order = ["contact", "lab", "toolkit", "work", "projects"];
     return ground("--sw:520;--sd:320") + order.map((id, i) => {

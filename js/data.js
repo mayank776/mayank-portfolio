@@ -6,9 +6,11 @@ window.SITE = {
   role: "Software Engineer · Full-Stack AI-Accelerated Development",
   tagline: "I build production full-stack systems and AI-powered automation.",
   email: "attrimayank16@gmail.com",
+  phone: "+91 87505 96624",
   links: [
-    { label: "GitHub", href: "https://github.com/mayank776" },
-    { label: "LinkedIn", href: "https://linkedin.com/in/mayank-attri-99757a137" },
+    { label: "GitHub", href: "https://github.com/mayank776", handle: "mayank776" },
+    { label: "LinkedIn", href: "https://linkedin.com/in/mayank-attri-99757a137", handle: "mayank-attri" },
+    { label: "X / Twitter", href: "https://x.com/AI_with_Attri", handle: "@AI_with_Attri" },
   ],
 
   projects: [
@@ -79,26 +81,71 @@ window.SITE = {
     },
   ],
 
-  // The Lab: AI agents and experiments.
+  // The Lab: big ideas, explained for beginners.
+  // To add an idea, copy one block below: id (used in the URL), title, hook,
+  // color, source, steps (3-6 short cards) and vision. Optional: try (a command to copy).
   lab: [
     {
-      name: "Ambient Email Agent",
-      stack: ["LangGraph", "Gmail API", "LangSmith"],
-      blurb:
-        "An autonomous agent that triages and drafts replies to 100+ emails a day, saving about 80% of the manual effort. Adaptive memory improved response quality by 40% over time.",
+      id: "neural-nets",
+      title: "Neural networks",
+      hook: "How a guess, a mistake and a nudge became ChatGPT.",
+      color: "#ad4a3b",
+      source: { title: "Neural Networks: Zero to Hero", by: "Andrej Karpathy", href: "https://www.youtube.com/playlist?list=PLAqhIrjkxbuWI23v9cThsA9GvCAUhRvKZ", cta: "Watch the series" },
+      steps: [
+        { name: "A neuron, by hand", tags: ["micrograd", "backpropagation"],
+          blurb: "A neural network is just a big math function with knobs. Backpropagation tells every knob which way to turn to make fewer mistakes. Build it in about 100 lines of Python and the magic becomes mechanics." },
+        { name: "Teaching it to write", tags: ["makemore", "next-letter prediction"],
+          blurb: "Show it 32,000 names and let it guess the next letter, again and again. Soon it invents names that never existed. That one trick, predicting what comes next, is the seed of every language model." },
+        { name: "Going deeper, staying stable", tags: ["MLP", "BatchNorm", "gradients"],
+          blurb: "Stack more layers and things break: signals fade away or blow up. Learn to read a network's vital signs and keep training healthy, the quiet skill that makes deep learning work." },
+        { name: "Looking further back", tags: ["WaveNet", "context"],
+          blurb: "Better guesses need a longer memory. Arrange the layers like a tree so the model can take in a bigger stretch of text at once." },
+        { name: "Building GPT", tags: ["attention", "tokenizer", "GPT-2"],
+          blurb: "Attention lets every word look at every other word and decide what matters. Build a GPT from scratch, write its tokenizer, then reproduce GPT-2: the same blueprint behind ChatGPT." },
+      ],
+      vision: "None of this is magic. The systems changing how we write, code and learn are made of small parts you can build in an afternoon: a guess, a mistake, a nudge, repeated billions of times. Understanding them from scratch is how you stop just using AI and start shaping it.",
     },
     {
-      name: "DocChat — Multi-Agent RAG",
-      stack: ["ADK", "Mistral", "BM25", "ChromaDB"],
-      blurb:
-        "Hybrid BM25 + vector retrieval with a self-correcting agent loop that cuts hallucinations when answering over complex document sets.",
+      id: "rea",
+      title: "Reverse engineering",
+      hook: "Ask your AI agent how any app really works.",
+      color: "#3d6184",
+      source: { title: "REA: Reverse Engineer Anything", by: "rea.tools", href: "https://rea.tools/", cta: "Visit rea.tools" },
+      try: "npx rea-agents@latest setup",
+      steps: [
+        { name: "Every app is a closed box", tags: ["curiosity"],
+          blurb: "Every app, game and website runs on instructions you never see. Reverse engineering is the art of opening the box and reading them." },
+        { name: "Ask one question", tags: ["coding agents", "Claude Code"],
+          blurb: "Pick a single feature, like how fast the Chrome dinosaur game speeds up, and ask your coding agent about it." },
+        { name: "Let the agent look inside", tags: ["code", "runtime"],
+          blurb: "REA gives the agent tools to read the program's code and watch what it actually does while it runs, instead of guessing." },
+        { name: "Get a real answer", tags: ["dino game", "calculator"],
+          blurb: "The dino starts at speed 6 and climbs toward 13. Windows Calculator's % key follows two different rules, depending on whether it comes after + or ×. Real rules, found in the real program." },
+        { name: "Rebuild it, change it", tags: ["experiments", "RL environments"],
+          blurb: "Explain the feature, then try a change. REA can even turn a recorded web app session into a local playground for training and testing AI agents." },
+      ],
+      vision: "Software stops being a black box. When anyone can ask why a program behaves the way it does and get a real answer, every app becomes a textbook, and learning to build becomes learning by taking things apart.",
     },
-  ],
-  certifications: [
-    "Agentic AI with LangChain & LangGraph — IBM",
-    "Advanced RAG with Vector Databases — IBM",
-    "Build Multimodal GenAI Apps — IBM",
-    "Fundamentals of Building AI Agents",
+    {
+      id: "quantum",
+      title: "Quantum computing",
+      hook: "Computers that work the way nature does.",
+      color: "#75496e",
+      source: { title: "Quantum computing for the very curious", by: "Andy Matuschak & Michael Nielsen", href: "https://quantum.country/qcvc", cta: "Read the essay" },
+      steps: [
+        { name: "Bits become qubits", tags: ["qubit", "superposition"],
+          blurb: "An ordinary bit is 0 or 1. A qubit can be a blend of both at once, written as a small vector of numbers called its state." },
+        { name: "Gates that reshape a qubit", tags: ["NOT gate", "Hadamard"],
+          blurb: "Quantum programs are circuits of gates. The NOT gate flips a qubit; the Hadamard gate turns a certain 0 into an even blend of 0 and 1." },
+        { name: "Looking changes everything", tags: ["measurement", "probability"],
+          blurb: "Measuring a qubit forces it to pick 0 or 1, with odds set by its state. The art is arranging gates so the answer you want becomes the likely one." },
+        { name: "Qubits working together", tags: ["CNOT", "universal computing"],
+          blurb: "The controlled-NOT gate links two qubits so one steers the other. With a small set of gates like these, you can build any quantum computation." },
+        { name: "Learning that sticks", tags: ["spaced repetition", "mnemonic medium"],
+          blurb: "The essay is an experiment too: questions woven into the reading come back over days and weeks, so the ideas stay with you for years instead of days." },
+      ],
+      vision: "The physicist David Deutsch asked whether one machine could simulate any physical system. Quantum computers are that question turning into hardware. Learning their math today is like learning to program when computers still filled whole rooms.",
+    },
   ],
   education: { degree: "B.Tech — Metallurgical & Materials Engineering", school: "NIT Rourkela", period: "2017 — 2021" },
 
