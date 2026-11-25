@@ -427,8 +427,11 @@
 .toast.show { opacity: 1; translate: -50% 0; }
 
 /* ---------- twist (js/twist.js) ---------- */
-.box {
-  touch-action: pan-y;          /* sideways drags turn the box; vertical still scrolls */
+/* The home page fits the screen and never scrolls, so on touch screens every
+   drag goes to the boxes: sideways turns one, upward lifts it, and in the
+   other views a drag looks around, the same as with a mouse. */
+.stage, .box {
+  touch-action: none;
   user-select: none;
   -webkit-user-select: none;
   -webkit-user-drag: none;

@@ -270,7 +270,7 @@
   addEventListener("pointerdown", (e) => {
     orbited = false;
     const world = e.target.closest(".view")?.querySelector(".world[data-orbit]");
-    if (!world || !e.isPrimary || e.button > 0 || e.pointerType === "touch") return;
+    if (!world || !e.isPrimary || e.button > 0) return;
     const cs = world.style;
     orbit = { world, id: e.pointerId, x: e.clientX, y: e.clientY, oy: parseFloat(cs.getPropertyValue("--oy")) || 0, oe: parseFloat(cs.getPropertyValue("--oe")) || 0, moving: false };
   });

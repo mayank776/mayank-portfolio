@@ -53,8 +53,6 @@
     if (lift?.held) letGo(e.timeStamp);
     const box = e.target.closest(".world[data-lift] > .box");
     if (!box || !e.isPrimary || e.button > 0) return;
-    // On touch an upward drag stays a scroll (the boxes allow pan-y).
-    if (e.pointerType === "touch") return;
     grip = { box, id: e.pointerId, x: e.clientX, y: e.clientY };
   });
 
